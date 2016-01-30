@@ -7,15 +7,10 @@ public class DialogueTree
 {
 	private DirectedGraph _conversation;
 
-	// TODO 
-	// need to read in a conversation (set of questions and responses)
-	// initialize conversation with size (# questions)
-	// loop through the questions and create new question objects with descriptions and responses and add those to the conversation
-	// set up a tester scipt to go through the conversation
-
 	public DialogueTree(string filename)
 	{
 		_conversation = new DirectedGraph();
+
 		ParseQuestions(ExtractLinesFromFile(filename));
 		Node currentQuestion = _conversation.Header;
 
@@ -36,8 +31,7 @@ public class DialogueTree
 		}
 	}
 
-	// parses a conversation file for a list of questions and possible responses
-	// format: int(question type), string(question), string(response), string(response), ...
+	// parses a text file and returns an array of lines
 	private string[] ExtractLinesFromFile(string filename)
 	{
 		TextAsset data = Resources.Load("Text/" + filename) as TextAsset;
