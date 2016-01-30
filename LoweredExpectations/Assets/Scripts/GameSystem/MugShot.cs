@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 // A character Mugshot
 public class MugShot : MonoBehaviour
 {
     [SerializeField]
-    private SpriteRenderer[] mugShotSprites = new SpriteRenderer[(int)eMugShotComponents.Count];
+    private Image[] mugShotSprites = new Image[(int)eMugShotComponents.Count];
 
     // Set the mug shot sprites
     public void InitMugShot(Sprite[] spriteArray)

@@ -6,7 +6,7 @@ using System;
 public class MugShotComponents : Singleton<MugShotComponents>
 {
     [SerializeField]
-    private GameObject mugShotPrefab;
+    private Character charPrefab;
 
     [SerializeField]
     private MugShotComponent[] spriteSets = new MugShotComponent[(int)eMugShotComponents.Count];
@@ -16,8 +16,29 @@ public class MugShotComponents : Singleton<MugShotComponents>
 
     void Start()
     {
-        //GameObject derp = (GameObject)GameObject.Instantiate(mugShotPrefab) as GameObject;
-        GenerateMugShot(mugShotPrefab.GetComponent<MugShot>());
+        GenerateCharacter();
+    }
+
+    private string[] ExtractLinesFromFile(string filename)
+    {
+        TextAsset data = Resources.Load("Text/" + filename) as TextAsset;
+        return data.text.Split("\n"[0]);
+    }
+
+    public void GenerateCharacter()
+    {
+        string[] firstNames = ExtractLinesFromFile("firstnames");
+        string[] lastNames = ExtractLinesFromFile("lastnames");
+
+        string firstName = firstNames[rngGen.Next(0, firstNames.Length - 1)];
+        string lastName = lastNames[rngGen.Next(0, lastNames.Length - 1)];
+
+        GameObject character = (GameObject)GameObject.Instantiate(charPrefab.gameObject) as GameObject;
+        character.name = firstName + "_" + lastName;
+        Character newChar = character.GetComponent<Character>();
+        DatingProfile profile = new DatingProfile(firstName, lastName, 19);
+        newChar.SetCharacterProperties(profile);
+        GenerateMugShot(newChar.MugShot);
     }
 
     // Generates a random mugshot by iterating over the mugshot components and picking a random sprite from each component.
