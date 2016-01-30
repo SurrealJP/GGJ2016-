@@ -1,0 +1,5 @@
+-1,First question!,Option A|Option B|Option C|Option D
+0,Second question!,Option E|Option F|Option G|Option H
+0,<!>Special question<!>,Option X|Option Z
+1,Fourth question...,Option I|Option J|OPTION k
+1,Fifth question,Option 1|Option 2|Option 3|Option 5
