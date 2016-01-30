@@ -15,6 +15,17 @@ public class MugShot : MonoBehaviour
             mugShotSprites[i].sprite = spriteArray[i];
         }
     }
+
+    public void SetComponentColor(int element, Color color)
+    {
+        if(mugShotSprites[element] != null)
+        {
+            if (mugShotSprites[element].sprite != null)
+            {
+                mugShotSprites[element].color = color;
+            }
+        }
+    }
 }
 
 public enum eMugShotComponents
@@ -23,7 +34,7 @@ public enum eMugShotComponents
     Hair,
     Mouth,
     Eyes,
-    Ears,
+    Eyebrows,
     Nose,
     Count
 }
