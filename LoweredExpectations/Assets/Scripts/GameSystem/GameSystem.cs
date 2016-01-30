@@ -2,20 +2,20 @@
 using System.Collections;
 using System;
 
-public class GameSystem : MonoBehaviour
+public class GameSystem : Singleton<GameSystem>
 {
     private eGameState currentGameState = eGameState.Start;
 
     public delegate void GameStateChangedEvent(eGameState toState);
     public GameStateChangedEvent OnGameStateChanged;
 
-    private void Awake()
+    public override void Awake()
     {
         currentGameState = eGameState.Start;
+        base.Awake();
     }
 	// Use this for initialization
 	void Start () {
-	    
 	}
 
     public void ChangeState(eGameState toState)
