@@ -14,6 +14,12 @@ public class MugShotComponents : Singleton<MugShotComponents>
     private MugShotComponentColors[] spriteColors = new MugShotComponentColors[(int)eMugShotComponents.Count];
     private System.Random rngGen = new System.Random();
 
+    void Start()
+    {
+        //GameObject derp = (GameObject)GameObject.Instantiate(mugShotPrefab) as GameObject;
+        GenerateMugShot(mugShotPrefab.GetComponent<MugShot>());
+    }
+
     // Generates a random mugshot by iterating over the mugshot components and picking a random sprite from each component.
     public void GenerateMugShot(MugShot mugShot)
     {

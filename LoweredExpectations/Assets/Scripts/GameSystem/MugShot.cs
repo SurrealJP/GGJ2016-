@@ -34,7 +34,7 @@ public enum eMugShotComponents
     Hair,
     Mouth,
     Eyes,
-    Ears,
+    Eyebrows,
     Nose,
     Count
 }
