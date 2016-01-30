@@ -31,11 +31,13 @@ public class MugShot : MonoBehaviour
 
 public enum eMugShotComponents
 {
-    Head = 0,
-    Hair,
-    Mouth,
-    Eyes,
-    Eyebrows,
-    Nose,
-    Count
+    Head = 0, // 0
+    Hair,    // 1
+    Lips, // 2
+    Eyebrows, // 3
+    Nose, //4 
+    EyesIris, //5
+    EyesPupil, //6
+    EyeLiner, //7
+    Count // 8
 }

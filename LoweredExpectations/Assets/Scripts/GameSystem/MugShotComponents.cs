@@ -49,7 +49,7 @@ public class MugShotComponents : Singleton<MugShotComponents>
         // Generate a random mug shot.
         for (int i = 0; i < spriteSets.Length; i++)
         {
-            randomSpriteSet[i] = spriteSets[i].Sprites[rngGen.Next(0, spriteSets[i].Sprites.Length - 1)];
+            randomSpriteSet[i] = spriteSets[i].Sprites[rngGen.Next(0, spriteSets[i].Sprites.Length)];
         }
         mugShot.InitMugShot(randomSpriteSet);
 
@@ -58,7 +58,7 @@ public class MugShotComponents : Singleton<MugShotComponents>
         {
             if (spriteColors[i].UseColor)
             {
-                mugShot.SetComponentColor(i, spriteColors[i].Colors[rngGen.Next(0, spriteColors[i].Colors.Length - 1)]);
+                mugShot.SetComponentColor(i, spriteColors[i].Colors[rngGen.Next(0, spriteColors[i].Colors.Length)]);
             }
         }
     }
