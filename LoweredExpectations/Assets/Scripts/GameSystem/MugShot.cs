@@ -12,6 +12,12 @@ public class MugShot : MonoBehaviour
     private Image teeth;
 
     [SerializeField]
+    private Sprite eyeShadow1;
+
+    [SerializeField]
+    private Sprite eyeShadow2;
+
+    [SerializeField]
     private Text namePlate;
 
     [SerializeField]
@@ -48,7 +54,22 @@ public class MugShot : MonoBehaviour
     {
         for (int i = 0; i < mugShotSprites.Length && i < data.MugShotSprites.Length; i++)
         {
-            mugShotSprites[i].sprite = data.MugShotSprites[i];
+            // hack for forcing eyeliners.. OVERSIGHT!
+            if (i == (int)eMugShotComponents.EyeLiner)
+            {
+                if (mugShotSprites[(int)eMugShotComponents.Head].sprite.name == "face")
+                {
+                    mugShotSprites[i].sprite = eyeShadow1;
+                }
+                else
+                {
+                    mugShotSprites[i].sprite = eyeShadow2;
+                }
+            }
+            else
+            {
+                mugShotSprites[i].sprite = data.MugShotSprites[i];
+            }
             mugShotSprites[i].color = data.MugShotSpriteColorMods[i];
         }
 
@@ -60,6 +81,7 @@ public class MugShot : MonoBehaviour
         {
             teeth.color = Color.white;
         }
+
         namePlate.text = data.Profile.FirstName + " " + data.Profile.LastName;
 
         namePlateNode.SetActive(showNamePlage);
