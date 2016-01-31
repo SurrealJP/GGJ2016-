@@ -69,7 +69,7 @@ public class GameSystem : Singleton<GameSystem>
         switch (currentGameState)
         {
             case eGameState.Start:
-                SceneManager.LoadScene("StartScene");
+                SceneManager.LoadScene("StartScene", LoadSceneMode.Additive);
                 break;
             case eGameState.CreateProfile:
                 SceneManager.LoadScene("MainScene");

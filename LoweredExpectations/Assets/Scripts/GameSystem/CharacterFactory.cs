@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 
 // Stores and Generates random mugshots.
-public class MugShotComponents : Singleton<MugShotComponents>
+public class CharacterFactory : Singleton<CharacterFactory>
 {
     [SerializeField]
     private Character charPrefab;
@@ -13,11 +13,22 @@ public class MugShotComponents : Singleton<MugShotComponents>
     private MugShotComponent[] spriteSets = new MugShotComponent[(int)eMugShotComponents.Count];
     [SerializeField]
     private MugShotComponentColors[] spriteColors = new MugShotComponentColors[(int)eMugShotComponents.Count];
+
+    [SerializeField]
+    private GameObject characterPool;
+
     private System.Random rngGen = new System.Random();
+
+    public List<Character> CharacterCollection;
 
     void Start()
     {
-        //GenerateCharacter();
+        CharacterCollection = new List<Character>();
+        for (int i = 0; i < 50; i++)
+        {
+            CharacterCollection.Add(GenerateCharacter());
+        }
+        GenerateCharacter();
     }
 
     private string[] ExtractLinesFromFile(string filename)
@@ -35,6 +46,10 @@ public class MugShotComponents : Singleton<MugShotComponents>
         string lastName = lastNames[rngGen.Next(0, lastNames.Length - 1)];
 
         GameObject character = (GameObject)GameObject.Instantiate(charPrefab.gameObject) as GameObject;
+
+        character.transform.parent = characterPool.transform;
+        character.transform.localPosition = Vector3.zero;
+
         character.name = firstName + "_" + lastName;
         Character newChar = character.GetComponent<Character>();
 

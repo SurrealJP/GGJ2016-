@@ -8,12 +8,20 @@ public class MugShot : MonoBehaviour
     [SerializeField]
     private Image[] mugShotSprites = new Image[(int)eMugShotComponents.Count];
 
+    [SerializeField]
+    private Image teeth;
+
     // Set the mug shot sprites
     public void InitMugShot(Sprite[] spriteArray)
     {
-        for(int i = 0; i < mugShotSprites.Length && i < spriteArray.Length; i++)
+        for (int i = 0; i < mugShotSprites.Length && i < spriteArray.Length; i++)
         {
             mugShotSprites[i].sprite = spriteArray[i];
+        }
+
+        if (mugShotSprites[(int)eMugShotComponents.Lips].sprite.name == "femalelips2")
+        {
+            teeth.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
         }
     }
 
@@ -39,5 +47,6 @@ public enum eMugShotComponents
     EyesIris, //5
     EyesPupil, //6
     EyeLiner, //7
-    Count // 8
+    Clothes, // 8
+    Count // 9
 }

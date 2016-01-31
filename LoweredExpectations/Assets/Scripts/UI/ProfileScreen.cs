@@ -25,7 +25,7 @@ public class ProfileScreen : MonoBehaviour
     public void ShowProfile()
     {
         this.gameObject.SetActive(true);
-        GameObject charGo = MugShotComponents.Instance.GenerateCharacter().gameObject;
+        GameObject charGo = CharacterFactory.Instance.GenerateCharacter().gameObject;
         SetDetails(charGo.GetComponent<Character>());
         charGo.transform.parent = characterNode.transform;
         charGo.transform.localPosition = Vector3.zero;
