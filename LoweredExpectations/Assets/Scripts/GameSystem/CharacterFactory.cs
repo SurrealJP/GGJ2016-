@@ -15,14 +15,18 @@ public class CharacterFactory : Singleton<CharacterFactory>
     private System.Random rngGen = new System.Random();
 
     [SerializeField]
-    private List<Character> CharacterCollection;
+    private List<Character> characterCollection;
+    public List<Character> CharacterCollection
+    {
+        get { return characterCollection; }
+    }
 
     void Start()
     {
-        CharacterCollection = new List<Character>();
-        for (int i = 0; i < 50; i++)
+        characterCollection = new List<Character>();
+        for (int i = 0; i < 100; i++)
         {
-            CharacterCollection.Add(GenerateCharacter());
+            characterCollection.Add(GenerateCharacter());
         }
         GenerateCharacter();
     }

@@ -49,12 +49,18 @@ public class MugShot : MonoBehaviour
         for (int i = 0; i < mugShotSprites.Length && i < data.MugShotSprites.Length; i++)
         {
             mugShotSprites[i].sprite = data.MugShotSprites[i];
+            mugShotSprites[i].color = data.MugShotSpriteColorMods[i];
         }
 
         if (mugShotSprites[(int)eMugShotComponents.Lips].sprite.name == "femalelips2")
         {
             teeth.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
         }
+        else
+        {
+            teeth.color = Color.white;
+        }
+        namePlate.text = data.Profile.FirstName + " " + data.Profile.LastName;
     }
 }
 
