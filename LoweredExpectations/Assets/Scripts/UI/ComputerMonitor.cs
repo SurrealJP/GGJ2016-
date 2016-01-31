@@ -38,10 +38,6 @@ public class ComputerMonitor : Singleton<ComputerMonitor>
                 splashScreen.SetActive(false);
                 computerScreens[(int)eComputerScreens.BrowseProfiles].ShowProfile();
                 break;
-            case eGameState.ViewProfile:
-                splashScreen.SetActive(false);
-                computerScreens[(int)eComputerScreens.ViewProfile].ShowProfile();
-                break;
             case eGameState.Results:
                 splashScreen.SetActive(false);
                 break;
@@ -53,7 +49,6 @@ public enum eComputerScreens
 {
     CreateProfile,
     BrowseProfiles,
-    ViewProfile,
     Chat,
     Count
 }

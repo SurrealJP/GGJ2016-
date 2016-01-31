@@ -50,7 +50,7 @@ public class GameSystem : Singleton<GameSystem>
                 // Continuing transfers you to the next scene 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
-                    ChangeState(eGameState.ViewProfile);
+                    ChangeState(eGameState.BrowseProfiles);
                 }
                 break;
             case eGameState.CreateProfile:
@@ -106,7 +106,6 @@ public enum eGameState
     Start,
     CreateProfile,
     BrowseProfiles,
-    ViewProfile,
     Chat,
     Results
 }
