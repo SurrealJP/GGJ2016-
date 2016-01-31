@@ -22,6 +22,11 @@ public class ComputerMonitor : Singleton<ComputerMonitor>
         base.Awake();
     }
 
+    public void UpdateProfilePage(CharacterData data)
+    {
+        (computerScreens[(int)eComputerScreens.BrowseProfiles] as ProfileScreen).UpdateProfilePage(data);
+    }
+
     private void HandleOnGameStateChanged(eGameState toState)
     {
         switch (toState)

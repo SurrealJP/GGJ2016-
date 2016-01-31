@@ -44,7 +44,7 @@ public class MugShot : MonoBehaviour
         }
     }
 
-    public void InitMugShot(CharacterData data)
+    public void InitMugShot(CharacterData data, bool showNamePlage = true)
     {
         for (int i = 0; i < mugShotSprites.Length && i < data.MugShotSprites.Length; i++)
         {
@@ -61,6 +61,8 @@ public class MugShot : MonoBehaviour
             teeth.color = Color.white;
         }
         namePlate.text = data.Profile.FirstName + " " + data.Profile.LastName;
+
+        namePlateNode.SetActive(showNamePlage);
     }
 }
 
