@@ -73,7 +73,8 @@ public class MugShot : MonoBehaviour
             mugShotSprites[i].color = data.MugShotSpriteColorMods[i];
         }
 
-        if (mugShotSprites[(int)eMugShotComponents.Lips].sprite.name == "femalelips2")
+        if (mugShotSprites[(int)eMugShotComponents.Lips].sprite.name == "femalelips2"
+            || mugShotSprites[(int)eMugShotComponents.Lips].sprite.name == "femalelips3")
         {
             teeth.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
         }
