@@ -11,8 +11,14 @@ public class MugShot : MonoBehaviour
     [SerializeField]
     private Image teeth;
 
+    [SerializeField]
+    private Text namePlate;
+
+    [SerializeField]
+    private GameObject namePlateNode;
+
     // Set the mug shot sprites
-    public void InitMugShot(Sprite[] spriteArray)
+    public void InitMugShot(Sprite[] spriteArray, string name)
     {
         for (int i = 0; i < mugShotSprites.Length && i < spriteArray.Length; i++)
         {
@@ -23,6 +29,8 @@ public class MugShot : MonoBehaviour
         {
             teeth.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
         }
+
+        namePlate.text = name;
     }
 
     public void SetComponentColor(int element, Color color)
@@ -33,6 +41,19 @@ public class MugShot : MonoBehaviour
             {
                 mugShotSprites[element].color = color;
             }
+        }
+    }
+
+    public void InitMugShot(CharacterData data)
+    {
+        for (int i = 0; i < mugShotSprites.Length && i < data.MugShotSprites.Length; i++)
+        {
+            mugShotSprites[i].sprite = data.MugShotSprites[i];
+        }
+
+        if (mugShotSprites[(int)eMugShotComponents.Lips].sprite.name == "femalelips2")
+        {
+            teeth.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
         }
     }
 }

@@ -13,10 +13,6 @@ public class ProfileScreen : ComputerScreen
     public override void ShowProfile()
     {
         base.ShowProfile();
-        GameObject charGo = CharacterFactory.Instance.GenerateCharacter().gameObject;
-        SetDetails(charGo.GetComponent<Character>());
-        charGo.transform.parent = characterNode.transform;
-        charGo.transform.localPosition = Vector3.zero;
     }
 
     void SetDetails(Character chara)

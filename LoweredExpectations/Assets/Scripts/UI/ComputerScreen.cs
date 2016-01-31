@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Base class for a computer screen.
 public class ComputerScreen : MonoBehaviour
 {
     // Use this for initialization

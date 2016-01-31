@@ -2,33 +2,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
 
 /// <summary>
 /// Class for character
 /// </summary>
-public class Character : MonoBehaviour
+[Serializable]
+public class Character
 {
-    [SerializeField]
-    private MugShot mugShot;
-    public MugShot MugShot
-    {
-        get { return mugShot; }    
-    }
-
-    [SerializeField]
-    private Text text; 
-
     public DatingProfile Profile;
+    public CharacterData CharacterData;
 
-    // This will set the character
-    public void SetCharacterProperties(DatingProfile profile)
+    public Character(DatingProfile profile, CharacterData data)
     {
         Profile = profile;
-        text.text = string.Format("{0} {1}", profile.FirstName, profile.LastName);
+        CharacterData = data;
+    }
+}
+[Serializable]
+public class CharacterData
+{
+    public DatingProfile Profile;
+    public Sprite[] MugShotSprites;
+    public Color[] MugShotSpriteColorMods;
+
+    public CharacterData(DatingProfile profile, Sprite[] mugShotSprites, Color[] mugShotColors)
+    {
+        Profile = profile;
+        MugShotSprites = mugShotSprites;
+        MugShotSpriteColorMods = mugShotColors;
     }
 }
 
 // This is a dating profile any information regarding who this person is is stored here.
+[Serializable]
 public class DatingProfile
 {
     public string FirstName;
@@ -48,14 +55,5 @@ public class DatingProfile
         Location = location;
         characterIntersts = new List<eInterests>(interests);
         Bio = bio;
-    }
-
-    public DatingProfile(string fN, string lN, int age)
-    {
-        FirstName = fN;
-        LastName = lN;
-        Age = age;
-        //characterIntersts = new List<eInterests>(interests);
-       // Bio = bio;
     }
 }
