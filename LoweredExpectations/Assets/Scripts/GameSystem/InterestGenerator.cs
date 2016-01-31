@@ -98,16 +98,23 @@ public class Interest
 
 public class Paragraph
 {
-    int LineCount = 0;
-    List<string> Text;
-
-    // build a paragrapth with a given input. In this  case, the input is a list of interests.
-    public Paragraph(List<string> interests)
+    public List<string> Text;
+    public int Count
     {
-        for(int i = 0; i < interests.Count; i++)
+        get
         {
-            Debug.Log(interests[i]);
+            return Text.Count;
         }
+    }
+    // build a paragrapth with a given input. In this  case, the input is a list of interests.
+    public Paragraph(List<string> paraData)
+    {
+        Text = paraData;
+        for(int i = 0; i < paraData.Count; i++)
+        {
+            Debug.Log(paraData[i]);
+        }
+
     }
 }
 

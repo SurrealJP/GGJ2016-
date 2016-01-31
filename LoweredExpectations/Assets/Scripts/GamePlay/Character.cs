@@ -34,14 +34,18 @@ public class DatingProfile
     public string FirstName;
     public string LastName;
     public int Age;
+    public string Sex;
+    public string Location;
     public List<eInterests> characterIntersts;
     public Paragraph Bio;
 
-    public DatingProfile(string fN, string lN, int age, List<eInterests> interests, Paragraph bio)
+    public DatingProfile(string fN, string lN, int age, string sex, string location, List<eInterests> interests, Paragraph bio)
     {
         FirstName = fN;
         LastName = lN;
         Age = age;
+        Sex = sex;
+        Location = location;
         characterIntersts = new List<eInterests>(interests);
         Bio = bio;
     }

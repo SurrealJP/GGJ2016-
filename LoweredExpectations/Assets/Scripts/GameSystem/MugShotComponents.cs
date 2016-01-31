@@ -26,7 +26,7 @@ public class MugShotComponents : Singleton<MugShotComponents>
         return data.text.Split("\n"[0]);
     }
 
-    public void GenerateCharacter()
+    public Character GenerateCharacter()
     {
         string[] firstNames = ExtractLinesFromFile("firstnames");
         string[] lastNames = ExtractLinesFromFile("lastnames");
@@ -60,9 +60,11 @@ public class MugShotComponents : Singleton<MugShotComponents>
 
         Paragraph test = InterestGenerator.GenerateBiography(firstName, interests);
 
-        DatingProfile profile = new DatingProfile(firstName, lastName, 19, interests, test);
+        DatingProfile profile = new DatingProfile(firstName, lastName, 19, "female", "Canada", interests, test);
         newChar.SetCharacterProperties(profile);
         GenerateMugShot(newChar.MugShot);
+
+        return newChar;
     }
 
     // Generates a random mugshot by iterating over the mugshot components and picking a random sprite from each component.
@@ -100,5 +102,3 @@ public class MugShotComponentColors
     public Color[] Colors;
     public bool UseColor = false;
 }
-
-
