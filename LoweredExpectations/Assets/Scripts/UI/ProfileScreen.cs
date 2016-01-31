@@ -3,13 +3,13 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class ProfileScreen : MonoBehaviour
-{
+{ 
     [SerializeField]
-    private Character character;
+    private GameObject characterNode;
 
     [SerializeField]
     private Text age;
-
+     
     [SerializeField]
     private Text sex;
 
@@ -22,15 +22,17 @@ public class ProfileScreen : MonoBehaviour
     [SerializeField]
     private Text biography;
 
-    void Start()
+    public void ShowProfile()
     {
-        character = MugShotComponents.Instance.GenerateCharacter();
-        SetDetails(character);
+        this.gameObject.SetActive(true);
+        GameObject charGo = MugShotComponents.Instance.GenerateCharacter().gameObject;
+        SetDetails(charGo.GetComponent<Character>());
+        charGo.transform.parent = characterNode.transform;
+        charGo.transform.localPosition = Vector3.zero;
     }
 
     void SetDetails(Character chara)
     {
-        character = chara;
         age.text = chara.Profile.Age.ToString();
         sex.text = chara.Profile.Sex;
         location.text = chara.Profile.Location;

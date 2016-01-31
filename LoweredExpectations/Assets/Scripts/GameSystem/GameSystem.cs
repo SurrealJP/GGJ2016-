@@ -16,7 +16,7 @@ public class GameSystem : Singleton<GameSystem>
     {
         PrintSystemLog("System Awake");
         OnGameStateChanged += HandleOnGameStateChanged;
-        //ChangeState(eGameState.Start);
+        ChangeState(eGameState.Start);
         base.Awake();
     }
 	// Use this for initialization
@@ -54,6 +54,7 @@ public class GameSystem : Singleton<GameSystem>
                 }
                 break;
             case eGameState.CreateProfile:
+
                 break;
             case eGameState.GamePlay:
                 break;

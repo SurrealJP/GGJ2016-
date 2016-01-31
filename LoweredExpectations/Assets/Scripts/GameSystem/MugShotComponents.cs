@@ -17,7 +17,7 @@ public class MugShotComponents : Singleton<MugShotComponents>
 
     void Start()
     {
-        GenerateCharacter();
+        //GenerateCharacter();
     }
 
     private string[] ExtractLinesFromFile(string filename)
