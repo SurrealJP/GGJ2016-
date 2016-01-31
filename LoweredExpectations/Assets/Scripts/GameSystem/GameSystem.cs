@@ -50,13 +50,13 @@ public class GameSystem : Singleton<GameSystem>
                 // Continuing transfers you to the next scene 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
-                    ChangeState(eGameState.CreateProfile);
+                    ChangeState(eGameState.ViewProfile);
                 }
                 break;
             case eGameState.CreateProfile:
 
                 break;
-            case eGameState.GamePlay:
+            case eGameState.BrowseProfiles:
                 break;
             case eGameState.Results:
                 break;
@@ -74,7 +74,7 @@ public class GameSystem : Singleton<GameSystem>
             case eGameState.CreateProfile:
                 SceneManager.LoadScene("MainScene");
                 break;
-            case eGameState.GamePlay:
+            case eGameState.BrowseProfiles:
                 if(SceneManager.GetActiveScene().name != "MainScene")
                 {
                     SceneManager.LoadScene("MainScene");
@@ -105,6 +105,8 @@ public enum eGameState
     None = 0,
     Start,
     CreateProfile,
-    GamePlay,
+    BrowseProfiles,
+    ViewProfile,
+    Chat,
     Results
 }

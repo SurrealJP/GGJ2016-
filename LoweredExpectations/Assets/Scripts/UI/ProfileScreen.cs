@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class ProfileScreen : MonoBehaviour
+public class ProfileScreen : ComputerScreen
 { 
     [SerializeField]
     private GameObject characterNode;
@@ -22,9 +22,9 @@ public class ProfileScreen : MonoBehaviour
     [SerializeField]
     private Text biography;
 
-    public void ShowProfile()
+    public override void ShowProfile()
     {
-        this.gameObject.SetActive(true);
+        base.ShowProfile();
         GameObject charGo = CharacterFactory.Instance.GenerateCharacter().gameObject;
         SetDetails(charGo.GetComponent<Character>());
         charGo.transform.parent = characterNode.transform;

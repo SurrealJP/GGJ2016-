@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 // This thing is the root of the game. It's also a canvas. Since we use only UI for the game.
 public class ComputerMonitor : Singleton<ComputerMonitor>
@@ -9,24 +10,16 @@ public class ComputerMonitor : Singleton<ComputerMonitor>
     private Canvas mainCanvas;
 
     [SerializeField]
-    private ProfileScreen profileScreen;
+    private GameObject splashScreen;
+
+    [SerializeField]
+    private List<ComputerScreen> computerScreens = new List<ComputerScreen>((int)eComputerScreens.Count);
 
     public override void Awake()
     {
+        splashScreen.SetActive(true);
         GameSystem.Instance.OnGameStateChanged += HandleOnGameStateChanged;
         base.Awake();
-    }
-
-    //Use this for initialization
-    void Start()
-    {
-        profileScreen.ShowProfile();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void HandleOnGameStateChanged(eGameState toState)
@@ -34,15 +27,34 @@ public class ComputerMonitor : Singleton<ComputerMonitor>
         switch (toState)
         {
             case eGameState.Start:
+                Debug.Log("Start");
+                
                 break;
             case eGameState.CreateProfile:
-                Debug.Log("po");
-                profileScreen.ShowProfile();
+                splashScreen.SetActive(false);
+                computerScreens[(int)eComputerScreens.CreateProfile].ShowProfile();
                 break;
-            case eGameState.GamePlay:
+            case eGameState.BrowseProfiles:
+                splashScreen.SetActive(false);
+                computerScreens[(int)eComputerScreens.BrowseProfiles].ShowProfile();
+                break;
+            case eGameState.ViewProfile:
+                splashScreen.SetActive(false);
+                computerScreens[(int)eComputerScreens.ViewProfile].ShowProfile();
                 break;
             case eGameState.Results:
+                splashScreen.SetActive(false);
                 break;
         }
     }
 }
+
+public enum eComputerScreens
+{
+    CreateProfile,
+    BrowseProfiles,
+    ViewProfile,
+    Chat,
+    Count
+}
+
