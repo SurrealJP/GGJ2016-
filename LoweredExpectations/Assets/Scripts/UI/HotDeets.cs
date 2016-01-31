@@ -20,7 +20,7 @@ public class HotDeets : MonoBehaviour
     {
         age.text = "AGE: " + ageString;
         sex.text = "SEX: " + sexString;
-        location.text = "LOCATION: " + locationString;
-        lookingFor.text = "LOOKING FOR: " + lookingForString;
+        location.text = locationString;
+        lookingFor.text = lookingForString;
     }
 }

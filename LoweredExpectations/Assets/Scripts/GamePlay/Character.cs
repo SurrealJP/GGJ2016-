@@ -45,8 +45,9 @@ public class DatingProfile
     public string Location;
     public List<eInterests> characterIntersts;
     public Paragraph Bio;
+    public eOrientations Orientation;
 
-    public DatingProfile(string fN, string lN, int age, string sex, string location, List<eInterests> interests, Paragraph bio)
+    public DatingProfile(string fN, string lN, int age, string sex, string location, List<eInterests> interests, Paragraph bio, eOrientations orientation)
     {
         FirstName = fN;
         LastName = lN;
@@ -55,5 +56,6 @@ public class DatingProfile
         Location = location;
         characterIntersts = new List<eInterests>(interests);
         Bio = bio;
+        Orientation = orientation;
     }
 }

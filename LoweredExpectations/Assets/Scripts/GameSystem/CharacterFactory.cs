@@ -41,9 +41,11 @@ public class CharacterFactory : Singleton<CharacterFactory>
     {
         string[] firstNames = ExtractLinesFromFile("firstnames");
         string[] lastNames = ExtractLinesFromFile("lastnames");
+        string[] locations = ExtractLinesFromFile("locations");
 
         string firstName = firstNames[rngGen.Next(0, firstNames.Length - 1)];
         string lastName = lastNames[rngGen.Next(0, lastNames.Length - 1)];
+        string location = locations[rngGen.Next(0, locations.Length - 1)];
 
         List<eInterests> interests = new List<eInterests>();
 
@@ -64,7 +66,9 @@ public class CharacterFactory : Singleton<CharacterFactory>
 
         Paragraph test = InterestGenerator.GenerateBiography(firstName, interests);
 
-        DatingProfile profile = new DatingProfile(firstName, lastName, 19, "female", "Canada", interests, test);
+        eOrientations orientation = (eOrientations)rngGen.Next(0, (int)eOrientations.Count);
+
+        DatingProfile profile = new DatingProfile(firstName, lastName, 19, "female", location, interests, test, orientation);
         CharacterData data = RandomizeSpriteData(profile);
 
         Character character = new Character(profile, data);
@@ -113,4 +117,12 @@ public class MugShotComponentColors
 {
     public Color[] Colors;
     public bool UseColor = false;
+}
+
+public enum eOrientations
+{
+    Straight,
+    Bisexual,
+    Gay,
+    Count
 }

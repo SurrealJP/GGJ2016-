@@ -7,6 +7,8 @@ public class ProfilePage : MonoBehaviour
     [SerializeField]
     private MugShot characterMugShot;
     [SerializeField]
+    private ProfilePageMugshot clickShot;
+    [SerializeField]
     private Text biography;
     [SerializeField]
     private HotDeets deets;
@@ -19,6 +21,7 @@ public class ProfilePage : MonoBehaviour
         {
             biography.text += data.Profile.Bio.Text[i] + "\n";
         }
-        deets.SetDeets(data.Profile.Age.ToString(), data.Profile.Sex, data.Profile.Location, "M/F/ROBOTS");
+        deets.SetDeets(data.Profile.Age.ToString(), data.Profile.Sex, data.Profile.Location, data.Profile.Orientation.ToString());
+        clickShot.SetProfilePageMugshot(data.Profile);
     }
 }
