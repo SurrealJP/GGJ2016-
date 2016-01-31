@@ -48,5 +48,6 @@ public enum eMugShotComponents
     EyesPupil, //6
     EyeLiner, //7
     Clothes, // 8
+    Background,
     Count // 9
 }
