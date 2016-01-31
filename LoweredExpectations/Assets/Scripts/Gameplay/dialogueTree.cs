@@ -32,7 +32,7 @@ public class DialogueTree
 	}
 
 	// parses a text file and returns an array of lines
-	private string[] ExtractLinesFromFile(string filename)
+	public static string[] ExtractLinesFromFile(string filename)
 	{
 		TextAsset data = Resources.Load("Text/" + filename) as TextAsset;
 		return data.text.Split("\n"[0]);

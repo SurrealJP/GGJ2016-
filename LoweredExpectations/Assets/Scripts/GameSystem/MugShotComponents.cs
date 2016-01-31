@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 // Stores and Generates random mugshots.
 public class MugShotComponents : Singleton<MugShotComponents>
@@ -36,7 +37,30 @@ public class MugShotComponents : Singleton<MugShotComponents>
         GameObject character = (GameObject)GameObject.Instantiate(charPrefab.gameObject) as GameObject;
         character.name = firstName + "_" + lastName;
         Character newChar = character.GetComponent<Character>();
-        DatingProfile profile = new DatingProfile(firstName, lastName, 19);
+
+        List < eInterests > interests = new List<eInterests>();
+
+        int interestCount = rngGen.Next(1, (int)eInterests.Count + 1);
+
+        Debug.Log("INTEREST COUNT: " + interestCount + " max =: " + (int)eInterests.Count);
+
+        int rndInterestId = 0;
+
+        for (int i = 0; i < interestCount; i++)
+        {
+            rndInterestId = rngGen.Next(0, (int)eInterests.Count);
+
+            while (interests.Contains((eInterests)rndInterestId))
+            {
+                rndInterestId = rngGen.Next(0, (int)eInterests.Count);
+            }
+
+            interests.Add((eInterests)rndInterestId);
+        }
+
+        Paragraph test = InterestGenerator.GenerateBiography(firstName, interests);
+
+        DatingProfile profile = new DatingProfile(firstName, lastName, 19, interests, test);
         newChar.SetCharacterProperties(profile);
         GenerateMugShot(newChar.MugShot);
     }

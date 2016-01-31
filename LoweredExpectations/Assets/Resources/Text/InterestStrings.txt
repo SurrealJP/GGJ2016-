@@ -1,0 +1,2 @@
+{0} loves to {1}. {0}'s favorite {2} is {3}. {0} thinks the chapters about {4} are amazing.
+{0} enjoys {1}. {0} thinks the {2} in the {3} are {4}.

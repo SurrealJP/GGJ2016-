@@ -55,29 +55,3 @@ public class DatingProfile
        // Bio = bio;
     }
 }
-
-public enum eInterests
-{
-    Fishing,
-    Hiking,
-    Reading,
-    VideoGames,
-    BoardGames,
-    Nature
-}
-
-public class Paragraph
-{
-    int LineCount = 0;
-    List<string> Text;
-
-    // build the paragraph?
-    public Paragraph()
-    {
-
-    }
-}
-
-
-
-
