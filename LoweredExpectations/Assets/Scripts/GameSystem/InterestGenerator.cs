@@ -65,6 +65,14 @@ public class InterestGenerator
                 // {0} enjoys {1}s. {0} thinks the {2} in {3} are breathtaking.
                 interestString = String.Format(formatedInterestStrings[(int)interest.Type], firstName, interest.Verb, interest.Noun, interest.Example, interest.Topic);
                 break;
+            case eInterests.VideoGames:
+                // {0} loves {1}. {0}'s favorite {2} is {3}. {0} thinks the {4} levels are goty material.
+                interestString = String.Format(formatedInterestStrings[(int)interest.Type], firstName, interest.Verb, interest.Noun, interest.Example, interest.Topic);
+                break;
+            case eInterests.Painting:
+                // {0} loves {1}. {0} thinks that {2} is {3}. {0} wishes they could paint like {4}.
+                interestString = String.Format(formatedInterestStrings[(int)interest.Type], firstName, interest.Verb, interest.Noun, interest.Example, interest.Topic);
+                break;
         }
 
         return interestString;
@@ -75,6 +83,8 @@ public enum eInterests
 {
     Books,
     Hiking,
+    VideoGames,
+    Painting,
     Count
 }
 
